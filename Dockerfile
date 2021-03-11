@@ -1,10 +1,11 @@
 FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
- apt install -y wget gcc make cmake g++ git \
-        valgrind libboost-all-dev language-pack-en-base libboost-python-dev python3-dev \
-	sshpass\
-	clang-tidy clang python-yaml fontconfig python3-pip\
+    apt install -y rpm2cpio cpio wget gfortran gcc ragel libssl-dev make cmake g++ git autogen \
+    pkg-config valgrind libboost-all-dev language-pack-en-base libboost-python-dev python3-dev \
+    libsuperlu-dev libopenblas-dev sshpass zlib1g-dev\
+    clang-tidy clang libboost-all-dev wget valgrind python-yaml fontconfig python-pip python3-pip\
+    libeigen3-dev libsdl2-dev libglew-dev curl \
  && rm -rf /var/lib/apt/lists/* 
 RUN apt-get update && \
     apt-get install -y qt5-qmake qt5-default openssh-client && \
